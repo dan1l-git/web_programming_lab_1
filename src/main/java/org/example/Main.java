@@ -7,6 +7,7 @@ public class Main {
         System.out.println("Hello and welcome!");
 
         Manufacturer man = new Manufacturer("BMW", "Germany");
+        Car car = new Car("X5-M", man, 10);
 
         System.out.println(man);
     }

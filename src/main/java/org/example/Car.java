@@ -10,6 +10,10 @@ public class Car {
     private double fuelCapacity;
 
     public Car(String model, Manufacturer manufacturer, double fuelCapacity) {
+
+        if(model.isBlank()){throw new IllegalArgumentException("Model cannot be blank.");}
+        if(fuelCapacity < 0){throw new IllegalArgumentException("fuelCapacity must be greater than 0");}
+
         this.model = model;
         this.manufacturer = manufacturer;
         this.fuelCapacity = fuelCapacity;
@@ -18,29 +22,47 @@ public class Car {
     }
 
     public String getModel() {return model;}
-    public void setModel(String model) {this.model = model;}
+    public void setModel(String model) {
+        if(!(model.isBlank())){
+            this.model = model;
+        } else {throw new IllegalArgumentException("Model cannot be blank.");}
+    }
 
     public String getManufacturer() {return manufacturer.toString();}
     public void setManufacturer(Manufacturer manufacturer) {this.manufacturer = manufacturer;}
 
-    public void drive(int distance, double fuelConsumptionPerKilometer) {
+    public double getFuelLevel() {return fuelLevel;}
+    public int getMileage() {return mileage;}
+
+    public String drive(int distance, double fuelConsumptionPerKilometer) {
+
+        if (distance < 0 || fuelConsumptionPerKilometer < 0) {
+            throw new IllegalArgumentException("Distance and fuel consumption must be positive!");
+        }
+
         double neededFuel = distance * fuelConsumptionPerKilometer;
 
         if(neededFuel > fuelLevel) {
-            System.out.println("Not enough fuel to drive " + distance + " kilometers");
+            return "Not enough fuel to drive " + distance + " kilometers";
         }
         else{
             this.mileage += distance;
             this.fuelLevel -= neededFuel;
+            return "Driving " + distance + " kilometers";
         }
     }
 
-    public void refuel(double amount) {
+    public String refuel(double amount) {
+
+        if(amount < 0) {throw new IllegalArgumentException("Amount must be positive!");}
+
         if( fuelLevel + amount > fuelCapacity) {
             fuelLevel = fuelCapacity;
+            return "Fuel level limit reached";
         }
         else{
             fuelLevel += amount;
+            return "Added " + amount+ " liters. Fuel level: " + fuelLevel;
         }
     }
 

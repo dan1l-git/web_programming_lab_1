@@ -7,15 +7,23 @@ public class Manufacturer {
     private String country;
 
     public Manufacturer(String name, String country) {
+        if(name.isBlank()){throw new IllegalArgumentException("Name cannot be blank.");}
+        if(country.isBlank()){throw new IllegalArgumentException("Country cannot be blank.");}
         this.name = name;
         this.country = country;
     }
 
     // get; set;
     public String getName() {return name;}
-    public void setName(String name) {this.name = name;}
+    public void setName(String name) {
+        if(name.isBlank()){throw new IllegalArgumentException("Name cannot be blank.");}
+        else{this.name = name;}
+    }
     public String getCountry() {return country;}
-    public void setCountry(String country) {this.country = country;}
+    public void setCountry(String country) {
+        if(country.isBlank()){throw new IllegalArgumentException("Country cannot be blank.");}
+        else{this.country = country;}
+    }
 
     @Override
     public String toString() {
