@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Manufacturer {
     private String name;
     private String country;
@@ -17,6 +19,19 @@ public class Manufacturer {
 
     @Override
     public String toString() {
-        return "Manufacturer [name= " + name + ", country= " + country + "]";
+        return "Manufacturer name: " + name + ", country: " + country;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, country);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(!(obj instanceof Manufacturer other)) return false;
+
+        return Objects.equals(name, other.name) && Objects.equals(country, other.country);
     }
 }
