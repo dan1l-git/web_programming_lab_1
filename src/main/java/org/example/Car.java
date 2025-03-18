@@ -4,7 +4,7 @@ import java.util.Objects;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement (name = "car")
 public class Car {
     private String model;
     private Manufacturer manufacturer;
@@ -35,7 +35,7 @@ public class Car {
     }
 
     @XmlElement
-    public String getManufacturer() {return manufacturer.toString();}
+    public Manufacturer getManufacturer() {return manufacturer;}
     public void setManufacturer(Manufacturer manufacturer) {this.manufacturer = manufacturer;}
 
     @XmlElement

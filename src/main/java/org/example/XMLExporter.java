@@ -6,7 +6,7 @@ import jakarta.xml.bind.JAXBContext;
 public class XMLExporter {
     public static void ExportToXml(CarPark carPark, String filePath){
         try{
-            JAXBContext context = JAXBContext.newInstance(CarPark.class);
+            JAXBContext context = JAXBContext.newInstance(Manufacturer.class, Car.class, CarPark.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
