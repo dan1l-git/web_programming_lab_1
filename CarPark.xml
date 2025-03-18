@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<carPark>
+    <cars>
+        <fuelLevel>20.0</fuelLevel>
+        <manufacturer>Manufacturer name: honda, country: Japan</manufacturer>
+        <mileage>40</mileage>
+        <model>CH-R</model>
+    </cars>
+    <cars>
+        <fuelLevel>50.0</fuelLevel>
+        <manufacturer>Manufacturer name: honda, country: Japan</manufacturer>
+        <mileage>0</mileage>
+        <model>Civic</model>
+    </cars>
+</carPark>

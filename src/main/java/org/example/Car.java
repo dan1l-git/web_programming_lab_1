@@ -1,13 +1,18 @@
 package org.example;
 
 import java.util.Objects;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Car {
     private String model;
     private Manufacturer manufacturer;
     private int mileage;
     private double fuelLevel;
     private double fuelCapacity;
+
+    public Car(){}
 
     public Car(String model, Manufacturer manufacturer, double fuelCapacity) {
 
@@ -21,6 +26,7 @@ public class Car {
         this.mileage = 0;
     }
 
+    @XmlElement
     public String getModel() {return model;}
     public void setModel(String model) {
         if(!(model.isBlank())){
@@ -28,10 +34,13 @@ public class Car {
         } else {throw new IllegalArgumentException("Model cannot be blank.");}
     }
 
+    @XmlElement
     public String getManufacturer() {return manufacturer.toString();}
     public void setManufacturer(Manufacturer manufacturer) {this.manufacturer = manufacturer;}
 
+    @XmlElement
     public double getFuelLevel() {return fuelLevel;}
+    @XmlElement
     public int getMileage() {return mileage;}
 
     public String drive(int distance, double fuelConsumptionPerKilometer) {

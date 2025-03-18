@@ -3,8 +3,13 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import java.util.Comparator;
 
+@XmlRootElement
 public class CarPark {
+    public CarPark() {}
     private List<Car> cars = new ArrayList<Car>();
     private int carsCount = 0;
     public void addCar(Car car) {
@@ -19,7 +24,13 @@ public class CarPark {
         else{throw new ArrayStoreException("Car is not in the car list");}
     }
     public int getCarsCount() {return carsCount;}
+
+    @XmlElement
     public List<Car> getCars() {return new ArrayList<>(cars);}
+
+    public void sortCars(Comparator<Car> comparator) {
+        cars.sort(comparator);
+    }
 
     @Override
     public boolean equals(Object obj) {
