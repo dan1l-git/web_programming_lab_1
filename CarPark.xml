@@ -1,31 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <carPark>
     <cars>
-        <fuelLevel>30.0</fuelLevel>
+        <mileage>10</mileage>
+        <fuelLevel>40.0</fuelLevel>
         <manufacturer>
             <country>Japan</country>
             <ManufactureR>honda</ManufactureR>
         </manufacturer>
-        <mileage>30</mileage>
-        <model>CH-R</model>
-    </cars>
-    <cars>
-        <fuelLevel>50.0</fuelLevel>
-        <manufacturer>
-            <country>Japan</country>
-            <ManufactureR>honda</ManufactureR>
-        </manufacturer>
-        <mileage>0</mileage>
         <model>Civic</model>
     </cars>
     <cars>
+        <mileage>0</mileage>
         <fuelLevel>60.0</fuelLevel>
         <manufacturer>
             <country>Japan</country>
             <ManufactureR>honda</ManufactureR>
         </manufacturer>
-        <mileage>0</mileage>
-        <model>Accord</model>
+        <model>CH-R</model>
     </cars>
-    <carsCount>3</carsCount>
+    <carsCount>2</carsCount>
 </carPark>

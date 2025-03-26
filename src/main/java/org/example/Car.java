@@ -8,6 +8,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 public class Car {
     private String model;
     private Manufacturer manufacturer;
+    @XmlElement
     private int mileage;
     @XmlElement
     private double fuelLevel;
@@ -40,7 +41,6 @@ public class Car {
     public void setManufacturer(Manufacturer manufacturer) {this.manufacturer = manufacturer;}
 
     public double getFuelLevel() {return fuelLevel;}
-    @XmlElement
     public int getMileage() {return mileage;}
 
     public String drive(int distance, double fuelConsumptionPerKilometer) {
