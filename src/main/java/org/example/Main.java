@@ -23,7 +23,7 @@ public class Main {
         car2.drive(30,1);
         carPark.sortCars(Comparator.comparingDouble(Car::getFuelLevel));
         XMLExporter.ExportToXml(carPark, "CarPark.xml");
-        CarPark carPark1 = XMLImporter.importFromXml(new File("carPark.xml"));
+        CarPark carPark1 = XMLImporter.ImportFromXml("carPark.xml");
         List<Car> cars = carPark1.getCars();
         for (Car car : cars) {
             System.out.println(car.toString());

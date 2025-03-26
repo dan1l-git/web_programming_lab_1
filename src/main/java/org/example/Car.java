@@ -9,6 +9,7 @@ public class Car {
     private String model;
     private Manufacturer manufacturer;
     private int mileage;
+    @XmlElement
     private double fuelLevel;
     private double fuelCapacity;
 
@@ -38,7 +39,6 @@ public class Car {
     public Manufacturer getManufacturer() {return manufacturer;}
     public void setManufacturer(Manufacturer manufacturer) {this.manufacturer = manufacturer;}
 
-    @XmlElement
     public double getFuelLevel() {return fuelLevel;}
     @XmlElement
     public int getMileage() {return mileage;}
