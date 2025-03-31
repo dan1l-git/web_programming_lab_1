@@ -33,11 +33,11 @@ public class XMLImportTest {
 
         //Викликаємо імпорт
         CarPark importedCarPark = XMLImporter.ImportFromXml(inputStream);
-        List<Car> cars = importedCarPark.getCars();
+        List<Car> cars = importedCarPark.GetCars();
 
         //Перевіряємо, що об'єкт імпортований правильно
         assertNotNull(importedCarPark, "Об'єкт не повинен бути null");
-        assertEquals(1, importedCarPark.getCarsCount(), "Має бути імпортована 1 машина'");
+        assertEquals(1, importedCarPark.GetCarsCount(), "Має бути імпортована 1 машина'");
         assertEquals("CH-R", cars.get(0).getModel(), "Помилка імпорту, модель не співпадає");
     }
 

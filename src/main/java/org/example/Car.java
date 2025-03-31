@@ -43,7 +43,7 @@ public class Car {
     public double getFuelLevel() {return fuelLevel;}
     public int getMileage() {return mileage;}
 
-    public String drive(int distance, double fuelConsumptionPerKilometer) {
+    public String Drive(int distance, double fuelConsumptionPerKilometer) {
 
         if (distance < 0 || fuelConsumptionPerKilometer < 0) {
             throw new IllegalArgumentException("Distance and fuel consumption must be positive!");
@@ -61,7 +61,7 @@ public class Car {
         }
     }
 
-    public String refuel(double amount) {
+    public String Refuel(double amount) {
 
         if(amount < 0) {throw new IllegalArgumentException("Amount must be positive!");}
 

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import jakarta.xml.bind.annotation.XmlAnyElement;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.Comparator;
@@ -16,22 +15,22 @@ public class CarPark {
     private List<Car> cars = new ArrayList<Car>();
     @XmlElement
     private int carsCount = 0;
-    public void addCar(Car car) {
+    public void AddCar(Car car) {
         cars.add(car);
         carsCount+=1;
     }
-    public void deleteCar(Car car) {
+    public void DeleteCar(Car car) {
         if(cars.contains(car)){
             cars.remove(car);
             carsCount-=1;
         }
         else{throw new ArrayStoreException("Car is not in the car list");}
     }
-    public int getCarsCount() {return carsCount;}
+    public int GetCarsCount() {return carsCount;}
 
-    public List<Car> getCars() {return new ArrayList<>(cars);}
+    public List<Car> GetCars() {return new ArrayList<>(cars);}
 
-    public void sortCars(Comparator<Car> comparator) {
+    public void SortCars(Comparator<Car> comparator) {
         cars.sort(comparator);
     }
 
@@ -40,11 +39,11 @@ public class CarPark {
         if(this == obj) return true;
         if(!(obj instanceof CarPark other)) return false;
 
-        return Objects.equals(getCars(), other.getCars());
+        return Objects.equals(GetCars(), other.GetCars());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCars());
+        return Objects.hash(GetCars());
     }
 }

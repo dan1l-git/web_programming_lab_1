@@ -10,6 +10,7 @@ public class Manufacturer {
     private String name;
     private String country;
 
+
     public Manufacturer() {}
     public Manufacturer(String name, String country) {
         if(name.isBlank()){throw new IllegalArgumentException("Name cannot be blank.");}

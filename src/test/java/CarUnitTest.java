@@ -17,7 +17,7 @@ public class CarUnitTest {
     //driving tests
     @Test
     void testDriveSuccess(){
-        String result = car.drive(100, 0.5);
+        String result = car.Drive(100, 0.5);
         assertEquals("Driving 100 kilometers", result);
         assertEquals(50-(100*0.5), car.getFuelLevel());
         assertEquals(100, car.getMileage());
@@ -25,7 +25,7 @@ public class CarUnitTest {
 
     @Test
     void testDriveNotEnoughFuel(){
-        String result = car.drive(500, 0.5);
+        String result = car.Drive(500, 0.5);
         assertEquals("Not enough fuel to drive 500 kilometers", result);
         assertEquals(50, car.getFuelLevel());
         assertEquals(0, car.getMileage());
@@ -33,26 +33,26 @@ public class CarUnitTest {
 
     @Test
     void testDriveNegativeDistance(){
-        assertThrows(IllegalArgumentException.class, ()->car.drive(-100,0.5));
+        assertThrows(IllegalArgumentException.class, ()->car.Drive(-100,0.5));
     }
 
     //refuel tests
     @Test
     void testRefuelSuccess(){
-        car.drive(50,0.5);
-        car.refuel(10);
+        car.Drive(50,0.5);
+        car.Refuel(10);
         assertEquals(50-25+10, car.getFuelLevel());
     }
 
     @Test
     void testRefuelOverflow(){
-        car.refuel(100);
+        car.Refuel(100);
         assertEquals(50, car.getFuelLevel());
     }
 
     @Test
     void testRefuelNegativeAmount(){
-        assertThrows(IllegalArgumentException.class, ()->car.refuel(-100));
+        assertThrows(IllegalArgumentException.class, ()->car.Refuel(-100));
     }
 
     //creation tests
