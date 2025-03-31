@@ -1,19 +1,17 @@
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
 import org.example.Car;
 import org.example.CarPark;
 import org.example.Manufacturer;
 import org.example.XMLExporter;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
-import org.mockito.*;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class XMLExportTest {
 
@@ -39,5 +37,20 @@ public class XMLExportTest {
 
         outputStream.close();
     }
+@Test
+void TestXMLExport_Mock() throws Exception {
+
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+    CarPark mockCarPark = mock(CarPark.class);
+
+    XMLExporter.ExportToXml(mockCarPark, outputStream);
+    String xmlOutput = outputStream.toString();
+
+    assertTrue(xmlOutput.contains("<carPark>"), "XML має містити кореневий елемент <carPark>");
+    assertTrue(xmlOutput.contains("<carsCount>0</carsCount>"), "XML не містить потрібних тегів");
+
+    outputStream.close();
+}
 
 }
