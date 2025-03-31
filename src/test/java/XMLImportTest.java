@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class XMLImportTest {
     @Test
     void testImportFromXml_ContentVerification() {
-        // 1. Створюємо XML-рядок для тесту
+        //Створюємо XML-рядок для тесту
         String fakeXml = """
                 <carPark>
                     <cars>
@@ -28,17 +28,17 @@ public class XMLImportTest {
                 </carPark>
                 """;
 
-        // 2. Створюємо InputStream з цього рядка
+        //Створюємо InputStream з цього рядка
         ByteArrayInputStream inputStream = new ByteArrayInputStream(fakeXml.getBytes());
 
-        // 3. Викликаємо імпорт
+        //Викликаємо імпорт
         CarPark importedCarPark = XMLImporter.ImportFromXml(inputStream);
         List<Car> cars = importedCarPark.getCars();
 
-        // 4. Перевіряємо, що об'єкт імпортований правильно
+        //Перевіряємо, що об'єкт імпортований правильно
         assertNotNull(importedCarPark, "Об'єкт не повинен бути null");
-        assertEquals(1, importedCarPark.getCarsCount(), "Імпортоване ім'я має бути 'Test Park'");
-        assertEquals("CH-R", cars.get(0).getModel());
+        assertEquals(1, importedCarPark.getCarsCount(), "Має бути імпортована 1 машина'");
+        assertEquals("CH-R", cars.get(0).getModel(), "Помилка імпорту, модель не співпадає");
     }
 
 }
